@@ -9,4 +9,4 @@ Simple filter that checks if a file or directory string exists locally.
 {{ "/assets/images/logo.png"|exists }}
 ```
 
-Will return **true** Boolean if it's found, and **false** if not. The same filter can be used to check if a directories exists too.
+Will return a Boolean. **true** if found and **false** if not. The same filter can be used to check if a directory exists.
