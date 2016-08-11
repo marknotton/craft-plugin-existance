@@ -22,8 +22,12 @@ class exists extends \Twig_Extension {
 
     if (gettype($file) == 'string') {
 
+
       $filePath = getcwd().'/'.rtrim(ltrim(parse_url($file)["path"], '/'), '/');
 
+      if (is_dir($filePath)) {
+        return true;
+      }
       // Native Craft helper that returns the url as a string if file exists
       // return IOHelper::fileExists($filePath);
 
