@@ -17,7 +17,7 @@ class exists extends \Twig_Extension {
   }
 
   // When check for a files existance, just use this fill. If it doesn't exist, false is return. Otherwise return the url
-  // {{ (images ~ '/logo.jpg')|fileexists }}
+  // {{ (images ~ '/logo.jpg')|exists }}
   public function exists($file) {
 
     if (gettype($file) == 'string') {
