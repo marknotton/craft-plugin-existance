@@ -1,4 +1,4 @@
-<img src="http://i.imgur.com/jKCOPgd.png" alt="Existence" align="left" height="60" />
+<img src="http://i.imgur.com/YoGNUXR.png" alt="Existence" align="left" height="60" />
 
 # Existence *for Craft CMS*
 
