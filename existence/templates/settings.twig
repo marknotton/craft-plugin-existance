@@ -1,0 +1,9 @@
+{% import "_includes/forms" as forms %}
+{{ forms.lightswitchField({
+  label : "Are files and directories relative to their locale?",
+  instructions: "If you store your images in individual locale directories; enabable this switch. If you store all of your assets in a single directory regardless of locale, disable this switch. Ensuring the right option is selected will allow the correct directories and files to be validated.",
+  id: 'relativeLocaleDirectories',
+  name: 'relativeLocaleDirectories',
+  errors: settings.getErrors('relativeLocaleDirectories'),
+  on: (settings.relativeLocaleDirectories is defined) ? settings.relativeLocaleDirectories : 0
+}) }}
