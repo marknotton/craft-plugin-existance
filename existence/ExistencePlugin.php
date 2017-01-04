@@ -38,4 +38,20 @@ class ExistencePlugin extends BasePlugin {
     Craft::import('plugins.existence.twigextensions.exists');
     return new exists();
   }
+
+  public function getSettingsHtml() {
+    if (count(craft()->i18n->getSiteLocaleIds()) > 1) {
+      return craft()->templates->render('existence/settings', array(
+        'settings' => $this->getSettings()
+      ));
+    } else {
+      return false;
+    }
+  }
+
+  protected function defineSettings() {
+    return array(
+      'relativeLocaleDirectories' => array(AttributeType::Bool, 'default' => false)
+    );
+  }
 }
