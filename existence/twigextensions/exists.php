@@ -18,17 +18,12 @@ class exists extends \Twig_Extension {
 
   // When check for a files existance, just use this fill. If it doesn't exist, false is return. Otherwise return the url
   // {{ (images ~ '/logo.jpg')|exists }}
-  public function exists($file, $systemRoot=null) {
+  public function exists($file) {
 
     if (gettype($file) == 'string') {
 
-      if (is_bool($systemRoot)) {
-        $systemPath = $systemRoot === true ? getcwd() : $_SERVER['DOCUMENT_ROOT'];
-      } else {
-        $systemPath = craft()->plugins->getPlugin('existence')->getSettings()->relativeLocaleDirectories ? getcwd() : $_SERVER['DOCUMENT_ROOT'];
-      }
 
-      $filePath = $systemPath.'/'.rtrim(ltrim(parse_url($file)["path"], '/'), '/');
+      $filePath = getcwd().'/'.rtrim(ltrim(parse_url($file)["path"], '/'), '/');
 
       if (is_dir($filePath)) {
         return true;
