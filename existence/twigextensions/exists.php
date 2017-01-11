@@ -32,7 +32,6 @@ class exists extends \Twig_Extension {
 
       // Standard PHP approach that returns boolean
       return file_exists($_SERVER['DOCUMENT_ROOT'].$filePath) || file_exists(getcwd().$filePath);
-
     }
   }
 
