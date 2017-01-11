@@ -22,17 +22,17 @@ class exists extends \Twig_Extension {
 
     if (gettype($file) == 'string') {
 
+      $filePath = '/'.rtrim(ltrim(parse_url($file)["path"], '/'), '/');
 
-      $filePath = getcwd().'/'.rtrim(ltrim(parse_url($file)["path"], '/'), '/');
-
-      if (is_dir($filePath)) {
+      if (is_dir($_SERVER['DOCUMENT_ROOT'].$filePath) || is_dir(getcwd().$filePath)) {
         return true;
       }
       // Native Craft helper that returns the url as a string if file exists
       // return IOHelper::fileExists($filePath);
 
       // Standard PHP approach that returns boolean
-      return file_exists($filePath);
+      return file_exists($_SERVER['DOCUMENT_ROOT'].$filePath) || file_exists(getcwd().$filePath);
+
     }
   }
 
